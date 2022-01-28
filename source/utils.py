@@ -1,7 +1,10 @@
 import os
 
 
-def solve_folder(folder):
+def solve_folder(folder, parent_folder=None):
+
+    if parent_folder:
+        folder = os.path.join(parent_folder, folder)
 
     if not os.path.exists(folder):
 
@@ -15,7 +18,7 @@ def solve_fpath(fname, folder):
 
     folder = solve_folder(folder)
 
-    return os.path.join(fname, folder)
+    return os.path.join(folder, fname)
 
 
 def list_files(folder, extension=None):
